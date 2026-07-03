@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>maxoffers | Handpicked Deals & Offers</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <header class="sticky top-0 z-50 bg-blue-600 text-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex flex-wrap items-center justify-between">
+            
+            <a href="#" class="text-2xl font-black tracking-tight flex items-center gap-2">
+                <i class="fa-solid fa-bolt text-yellow-400"></i> MegaStore<span class="text-yellow-400 text-sm font-semibold">Affiliate</span>
+            </a>
+
+            <div class="w-full md:w-1/2 my-2 md:my-0 order-3 md:order-2">
+                <div class="relative flex items-center bg-white rounded-lg overflow-hidden shadow-inner">
+                    <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Search premium products, brands, and categories..." class="w-full px-4 py-2 text-gray-900 focus:outline-none">
+                    <button class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-6 py-2 transition-colors duration-200">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-6 order-2 md:order-3">
+                <a href="#deals" class="hover:text-yellow-400 transition font-medium"><i class="fa-solid fa-fire mr-1"></i> Hot Deals</a>
+                <a href="https://amazon.com" target="_blank" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-4 py-1.5 rounded-full font-bold text-sm transition-transform transform hover:scale-105 shadow">
+                    Visit Amazon <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative bg-gradient-to-r from-blue-700 to-indigo-800 text-white py-12 md:py-20 overflow-hidden">
+        <div class="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center relative z-10">
+            <div>
+                <span class="bg-red-500 text-xs uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-md">Limited Time Offer</span>
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mt-4">
+                    The Ultimate Smart Tech Deals
+                </h1>
+                <p class="text-lg text-blue-100 mt-4 max-w-lg">
+                    Discover handpicked premium electronics, fashion items, and daily gadgets with exclusive discount rates verified today.
+                </p>
+                <div class="mt-8 flex gap-4">
+                    <a href="#product-grid" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold px-8 py-3 rounded-lg transition-all shadow-lg transform hover:-translate-y-0.5">Explore Products</a>
+                    <a href="#deals" class="border border-white/40 bg-white/10 hover:bg-white/20 px-6 py-3 rounded-lg transition font-medium">View Best Discounts</a>
+                </div>
+            </div>
+            <div class="hidden md:flex justify-center">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80" alt="Premium Headset Showcase" class="rounded-2xl shadow-2xl border-4 border-white/10 max-h-96 object-cover">
+            </div>
+        </div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-400/20 via-transparent to-transparent pointer-events-none"></div>
+    </section>
+
+    <div class="bg-white border-b sticky top-[64px] z-40 shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex gap-2 overflow-x-auto scrollbar-none">
+            <button onclick="filterCategory('all')" class="category-btn active px-5 py-1.5 rounded-full text-sm font-semibold bg-blue-600 text-white whitespace-nowrap shadow-sm transition">All Products</button>
+            <button onclick="filterCategory('electronics')" class="category-btn px-5 py-1.5 rounded-full text-sm font-semibold bg-gray-100 text-gray-600 hover:bg-gray-200 whitespace-nowrap transition">Electronics</button>
+            <button onclick="filterCategory('fashion')" class="category-btn px-5 py-1.5 rounded-full text-sm font-semibold bg-gray-100 text-gray-600 hover:bg-gray-200 whitespace-nowrap transition">Fashion & Wearables</button>
+            <button onclick="filterCategory('home')" class="category-btn px-5 py-1.5 rounded-full text-sm font-semibold bg-gray-100 text-gray-600 hover:bg-gray-200 whitespace-nowrap transition">Home & Lifestyle</button>
+        </div>
+    </div>
+
+    <main id="product-grid" class="container mx-auto px-4 py-12">
+        <div class="flex items-center justify-between mb-8">
+            <h2 class="text-2xl font-bold tracking-tight text-gray-900">Featured Curated Recommendations</h2>
+            <span class="text-sm text-gray-500 font-medium">Showing top matching items</span>
+        </div>
+
+        <div id="productContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            </div>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 py-12 mt-20 border-t-4 border-blue-600">
+        <div class="container mx-auto px-4 text-center">
+            <p class="font-bold text-white mb-2">MegaStore Affiliate Hub</p>
+            <p class="text-sm max-w-md mx-auto mb-6">We choose items based on exceptional reviews and value. Clicking buttons directly forwards you to merchant portals via our tracked partner code links.</p>
+            <div class="text-xs text-gray-600">
+                &copy; 2026 MegaStore Inc. Built seamlessly via GitHub Actions & Pages.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // CONFIGURATION LAYER: Update your items, descriptions, and Amazon/Flipkart links here!
+        const products = [
+            {
+                id: 1,
+                title: "Premium Wireless Noise-Cancelling Headphones",
+                category: "electronics",
+                rating: "4.8",
+                reviews: "1,240",
+                price: "$299.00",
+                oldPrice: "$349.00",
+                badge: "Top Choice",
+                image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60",
+                affiliateUrl: "https://amzn.to/YOUR_AFFILIATE_ID_HERE"
+            },
+            {
+                id: 2,
+                title: "Minimalist Slate Grey Quartz Wrist Watch",
+                category: "fashion",
+                rating: "4.5",
+                reviews: "612",
+                price: "$89.00",
+                oldPrice: "$120.00",
+                badge: "Best Seller",
+                image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop&q=60",
+                affiliateUrl: "https://amzn.to/YOUR_AFFILIATE_ID_HERE"
+            },
+            {
+                id: 3,
+                title: "4K Ultra-HD Action Camera with Stabilization",
+                category: "electronics",
+                rating: "4.7",
+                reviews: "890",
+                price: "$199.00",
+                oldPrice: "$249.00",
+                badge: "20% OFF",
+                image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&auto=format&fit=crop&q=60",
+                affiliateUrl: "https://amzn.to/YOUR_AFFILIATE_ID_HERE"
+            },
+            {
+                id: 4,
+                title: "Ergonomic Ceramic Essential Oil Diffuser",
+                category: "home",
+                rating: "4.4",
+                reviews: "2,105",
+                price: "$34.99",
+                oldPrice: "$45.00",
+                badge: "Trending",
+                image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=500&auto=format&fit=crop&q=60",
+                affiliateUrl: "https://amzn.to/YOUR_AFFILIATE_ID_HERE"
+            }
+        ];
+
+        let selectedCategory = 'all';
+
+        // Initialize Store Display
+        function displayProducts(items) {
+            const container = document.getElementById('productContainer');
+            if (items.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-12 text-gray-500">
+                        <i class="fa-solid fa-box-open text-4xl mb-3"></i>
+                        <p>No products match your current search constraints.</p>
+                    </div>`;
+                return;
+            }
+
+            container.innerHTML = items.map(product => `
+                <div class="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden group flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                    <div class="relative bg-gray-100 pt-[100%] overflow-hidden">
+                        <img src="${product.image}" alt="${product.title}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        ${product.badge ? `<span class="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2.5 py-1 rounded-md shadow">${product.badge}</span>` : ''}
+                        <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-xs text-gray-800 text-xs font-bold px-2 py-1 rounded-md shadow flex items-center gap-1">
+                            <i class="fa-solid fa-star text-yellow-500"></i> ${product.rating}
+                        </span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-semibold text-gray-900 group-hover:text-blue-600 transition line-clamp-2 mb-2 min-h-[3rem]">
+                                ${product.title}
+                            </h3>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider mb-3">${product.category}</p>
+                        </div>
+                        <div>
+                            <div class="flex items-baseline gap-2 mb-4">
+                                <span class="text-xl font-bold text-gray-900">${product.price}</span>
+                                <span class="text-sm text-gray-400 line-through">${product.oldPrice}</span>
+                            </div>
+                            <a href="${product.affiliateUrl}" target="_blank" rel="noopener noreferrer" 
+                               class="w-full text-center block bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-2.5 px-4 rounded-lg shadow-sm transition-all text-sm">
+                               Buy Now <i class="fa-solid fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Global Dynamic Filters
+        function filterProducts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = products.filter(p => {
+                const matchesSearch = p.title.toLowerCase().includes(query);
+                const matchesCategory = selectedCategory === 'all' || p.category === selectedCategory;
+                return matchesSearch && matchesCategory;
+            });
+            displayProducts(filtered);
+        }
+
+        function filterCategory(cat) {
+            selectedCategory = cat;
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-gray-100', 'text-gray-600');
+            });
+            
+            const activeBtn = event.currentTarget;
+            activeBtn.classList.remove('bg-gray-100', 'text-gray-600');
+            activeBtn.classList.add('bg-blue-600', 'text-white', 'shadow-sm');
+            
+            filterProducts();
+        }
+
+        // Run on Initial Load
+        displayProducts(products);
+    </script>
+</body>
+</html>
